@@ -1,7 +1,6 @@
-let counter = 0;
+let counter = new Date();
 
 function incrementCounter() {
-  counter++;
   console.log(counter);
 }
 

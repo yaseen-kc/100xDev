@@ -1,9 +1,8 @@
-let count = 0;
+let counter = 0;
 
 function incrementCounter() {
-  count++;
-  console.log(count);
-  setTimeout(incrementCounter, 1000);
+  counter++;
+  console.log(counter);
 }
 
-incrementCounter();
+setInterval(incrementCounter, 1000);
