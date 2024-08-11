@@ -1,7 +1,9 @@
 const express = require("express");
-const app = express;
+const app = express();
 
 // middleware
+
+app.use(express.json());
 
 function userMiddleware(req, res, next) {
   const username = req.query.username;
@@ -37,4 +39,16 @@ app.get("/kidneyCheckup", userMiddleware, kidneyMiddleware, (req, res) => {
 app.get("/heartCheckup", userMiddleware, (req, res) => {
   res.send("Your heart is okay");
 });
- 
+
+// Global Catch || Error handling middleware
+app.use((err, req, res, next) => {
+  console.error(err);
+  res.status(500).send("Internal Server Error");
+  res.json({
+    msg: "Something is wrong",
+  });
+});
+
+app.listen(3000, () => {
+  console.log("Server Started");
+});
