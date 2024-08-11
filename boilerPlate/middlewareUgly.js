@@ -4,8 +4,6 @@ const app = express();
 // middleware
 
 app.get("/healthCheckup", (req, res) => {
-  console.log("Headers received:", req.headers); // Log headers
-
   const kidneyId = req.query.kidneyId;
   const username = req.query.username;
   const password = req.query.password;
