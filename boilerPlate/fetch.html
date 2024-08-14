@@ -28,17 +28,19 @@
       }
 
       //   Method 3
-      async function getAnimalData3() {
+      async function getAnimalData() {
         try {
           const response = await axios.get(
             "https://fakerapi.it/api/v1/persons"
           );
-          console.log(response.data);
+          document.getElementById("userData").innerHTML =
+            JSON.stringify(response);
         } catch (error) {
           console.error("Error fetching data: ", error);
         }
       }
     </script>
+    <div id="userData"></div>
     <button onclick="getAnimalData()">Get Animal Data</button>
   </body>
 </html>
