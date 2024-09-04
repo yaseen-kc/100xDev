@@ -1,3 +1,11 @@
+let timeout;
+function debouncePopulateDiv() {
+  clearTimeout(timeout);
+  timeout = setTimeout(() => {
+    populateDiv();
+  }, 1000);
+}
+
 async function populateDiv() {
   const a = document.getElementById("firstNumber").value;
   const b = document.getElementById("secondNumber").value;
